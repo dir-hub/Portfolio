@@ -1,30 +1,14 @@
 import Hero from "@/components/Hero";
+import Grid from "@/components/Grid";
 import { FloatingNav } from "@/components/ui/floating-navbar";
-import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
+import { navItems } from "@/data";
 
 export default function Home() {
-  const navItems = [
-    {
-      name: "Home",
-      link: "/",
-      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "About",
-      link: "#about",
-      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "Contact",
-      link: "#contact",
-      icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-  ];
-
   return (
-    <main className="relative bg-black-100">
+    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden">
       <FloatingNav navItems={navItems} />
       <Hero />
+      <Grid />
     </main>
   );
 }
