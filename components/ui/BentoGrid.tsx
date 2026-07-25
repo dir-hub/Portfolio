@@ -1,6 +1,7 @@
 import React from "react";
 import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "./GradientBg";
+import { GlobeCard } from "./GridGlobe";
 
 export const BentoGrid = ({
   className,
@@ -69,6 +70,7 @@ export const BentoGridItem = ({
                   className={cn(imgClassName, "object-cover object-center")}
                 />
               )}
+              {id === 2 && <GlobeCard />}
             </div>
             <div className={`absolute right-0 -bottom-5 ${id === 5 && 'w-full opacity-80'}`}>
               {spareImg && (
@@ -83,23 +85,13 @@ export const BentoGridItem = ({
                   <div className="absolute z-50 flex items-center justify-center text-white font-bold"/>
                 </BackgroundGradientAnimation>
               )}
-              <div className={cn(titleClassName, 'group-hover/bento:translate-x-2 duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10')}>
-                <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-xs lg:text-base z-10">
-                  {description}
-                </div>
-              </div>
             </div>
-            <div className={cn("flex flex-col gap-2", titleClassName, id === 6 && "flex justify-center h-full")}>
-              <div className="group-hover/bento:translate-x-2 transition duration-200">
-                {icon}
-                <h3 className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 text-xl lg:text-3xl max-w-xs">
-                  {title}
-                </h3>
-                {description && (
-                  <p className="text-neutral-600 dark:text-neutral-400 text-sm lg:text-base">
-                    {description}
-                  </p>
-                )}
+            <div className={cn(titleClassName, 'group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10 pointer-events-none z-20')}>
+              <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-xs lg:text-base z-10">
+                {description}
+              </div>
+              <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2 text-xl lg:text-3xl max-w-xs">
+                {title}
               </div>
             </div>
           </>
