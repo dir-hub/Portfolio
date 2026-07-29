@@ -32,7 +32,7 @@ export const gridItems = [
     description: "I constantly try to improve",
     className: "lg:col-span-1 lg:row-span-1 md:col-span-3 md:row-span-2",
     imgClassName: "",
-    titleClassName: "justify-center",
+    titleClassName: "justify-center whitespace-nowrap",
     img: "",
     spareImg: "",
   },
