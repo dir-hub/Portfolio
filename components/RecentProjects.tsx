@@ -1,11 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import { FaLocationArrow } from "react-icons/fa6";
 
 import { projects } from "@/data";
 import { PinContainer } from "./ui/3d-pin";
+import Link from "next/link";
 
 const RecentProjects = () => {
+  const [hoveredProjectId, setHoveredProjectId] = useState<number | null>(null);
+
   return (
     <div className="w-full py-12 sm:py-16 lg:py-20">
       <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-bold text-center">
@@ -13,15 +17,18 @@ const RecentProjects = () => {
         <span className="text-purple-300">recent projects</span>
       </h1>
       <div className="mx-auto mt-8 grid w-full max-w-[1600px] grid-cols-1 items-start gap-x-6 gap-y-16 px-4 py-4 sm:mt-10 sm:px-6 md:grid-cols-2 md:gap-x-10 lg:gap-x-16 lg:gap-y-24 xl:gap-x-20 2xl:gap-x-24">
-        {projects.map((item) => (
+        {projects.map((item) => {
+          const isLivePreview = hoveredProjectId === item.id;
+
+          return (
           <div
             className="flex min-h-[28rem] w-full items-center justify-center sm:min-h-[32rem] lg:min-h-[36rem] 2xl:min-h-[40rem]"
             key={item.id}
           >
             <PinContainer
-              title={item.link}
-              href={item.link}
-              containerClassName={`w-full flex justify-center ${
+              title={isLivePreview ? item.liveLink : item.link}
+              href={isLivePreview ? item.liveLink : item.link}
+              containerClassName={`w-full flex justify-center" ${
                 item.id % 2 === 0 ? "xl:justify-start" : "xl:justify-end"
               }`}
             >
@@ -33,11 +40,13 @@ const RecentProjects = () => {
                       alt=""
                       className="absolute inset-0 h-full w-full object-cover"
                     />
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="relative z-10 h-full w-full object-contain p-4 sm:p-5"
-                    />
+                    <div className="relative z-10 flex h-full w-full items-end justify-center px-4 pt-4 sm:px-5 sm:pt-5">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="h-full w-full rounded-lg object-cover rotate-1 [clip-path:inset(0_round_0.8rem)]"
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -71,16 +80,25 @@ const RecentProjects = () => {
                   </div>
 
                   <div className="flex justify-center items-center">
-                    <p className="flex lg:text-xl md:text-xs text-sm text-purple">
+                    <Link
+                      href={item.liveLink}
+                      target="_blank"
+                      onMouseEnter={() => setHoveredProjectId(item.id)}
+                      onMouseLeave={() => setHoveredProjectId(null)}
+                      onFocus={() => setHoveredProjectId(item.id)}
+                      onBlur={() => setHoveredProjectId(null)}
+                      className="flex lg:text-xl md:text-xs text-sm text-purple-300"
+                    >
                       Check Live Site
-                    </p>
+                    </Link>
                     <FaLocationArrow className="ms-3" color="#CBACF9" />
                   </div>
                 </div>
               </div>
             </PinContainer>
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

@@ -77,6 +77,7 @@ export const projects = [
     img: "/p1.jpg",
     iconLists: ["/re.svg", "/nodejs.svg", "/javascript.svg", "/mongodb.svg", "/git.svg"],
     link: "https://github.com/dir-hub/AI-Resume-Builder",
+    liveLink: "https://ai-resume-builder-tff9.vercel.app",
   },
   {
     id: 2,
@@ -85,6 +86,7 @@ export const projects = [
     img: "/p2.jpg",
     iconLists: ["/re.svg", "/nodejs.svg", "/ts.svg", "/postgresql.svg", "/git.svg"],
     link: "https://github.com/dir-hub/AI-Website-Builder",
+    liveLink: "https://ai-website-builder-coral.vercel.app",
   },
   {
     id: 3,
@@ -93,6 +95,7 @@ export const projects = [
     img: "/p3.jpg",
     iconLists: ["/re.svg", "/nodejs.svg", "/stripe.svg", "/mongodb.svg", "/git.svg"],
     link: "https://github.com/dir-hub/E-commerce-App",
+    liveLink: "https://forverecommerceclothing.vercel.app",
   },
   {
     id: 4,
@@ -101,6 +104,7 @@ export const projects = [
     img: "/p4.jpg",
     iconLists: ["/re.svg", "/nodejs.svg", "/c.svg", "/mongodb.svg", "/git.svg"],
     link: "https://github.com/dir-hub/Job-Portal",
+    liveLink: "https://job-portal-server-xi-nine.vercel.app",
   },
 ];
 
