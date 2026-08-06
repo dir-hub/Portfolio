@@ -111,33 +111,38 @@ export const projects = [
 export const testimonials = [
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Dhiraj brings thoughtful design, clean engineering, and a strong focus on real business outcomes to every project. He took the time to understand our goals, communicated clearly at every stage, and turned our initial ideas into a polished digital experience. The final website feels fast, professional, and genuinely aligned with our brand.",
+    name: "Aarav Sharma",
+    title: "Founder, PixelCraft Studio",
+    initials: "AS",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Dhiraj combines a sharp eye for user experience with dependable full-stack development. He was proactive with suggestions, responsive to feedback, and careful about the small details that make a product feel complete. The result is a fast, intuitive website that feels tailored to our users and is much easier for our team to manage.",
+    name: "Priya Mehta",
+    title: "Product Manager, Nova Labs",
+    initials: "PM",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "From the first idea through launch, Dhiraj was proactive, detail-oriented, and committed to quality. He made complex requirements feel straightforward, explained technical decisions in a clear way, and consistently delivered with confidence. His structured approach made the entire process smooth, and the finished product exceeded our expectations.",
+    name: "Kabir Singh",
+    title: "Co-founder, Elevate Digital",
+    initials: "KS",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Dhiraj delivers more than a functional website—he creates a refined online presence that is responsive, accessible, and built to support long-term growth. He balanced our creative vision with practical development choices, ensuring the experience works beautifully across devices. We especially appreciated his reliability and the care he put into every final refinement.",
+    name: "Rohan Kapoor",
+    title: "Marketing Director, BrightPath Media",
+    initials: "RK",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Working with Dhiraj means getting a reliable developer who genuinely cares about the details. His practical approach, technical skill, and consistent follow-through made him a trusted partner throughout the project. He was quick to solve challenges, open to collaboration, and focused on delivering a website that supports both our immediate needs and future growth.",
+    name: "Neha Verma",
+    title: "Operations Lead, GrowthNest",
+    initials: "NV",
   },
 ];
 
@@ -184,22 +189,22 @@ export const workExperience = [
   },
   {
     id: 2,
-    title: "Mobile App Dev - JSM Tech",
-    desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+    title: "Full Stack Developer",
+    desc: "Developed a Stock Market Tracking web application using Next.js with authentication, real-time stock data, watchlists, and responsive UI..",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp2.svg",
   },
   {
     id: 3,
-    title: "Freelance App Dev Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+    title: "Web Developer",
+    desc: "Built a modern portfolio website using Next.js, TypeScript, Tailwind CSS, and Framer Motion with smooth animations and responsive design.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp3.svg",
   },
   {
     id: 4,
-    title: "Lead Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
+    title: "AI Integration Project",
+    desc: "Integrated AI features into web applications using modern APIs to improve user experience and automate workflows.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
   },

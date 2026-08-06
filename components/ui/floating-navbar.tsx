@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import {
   motion,
   AnimatePresence,
@@ -42,16 +42,16 @@ export const FloatingNav = ({
             backdropFilter: "blur(12px)",
             backgroundColor: bgOpacity,
           }}
-          className="flex items-center gap-4 rounded-full border border-white/[0.2] bg-black/10 px-4 py-2 dark:bg-white/10"
+          className="flex items-center gap-1 rounded-full border border-white/[0.2] bg-black/10 px-2 py-2 sm:gap-4 sm:px-4 dark:bg-white/10"
         >
           {navItems.map((navItem, idx) => (
             <Link
               key={`link-${idx}`}
               href={navItem.link}
-              className="relative flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-neutral-50 transition-colors hover:text-white dark:text-neutral-300"
+              className="relative flex items-center gap-2 px-2 py-1.5 text-xs font-medium text-neutral-50 transition-colors hover:text-white sm:px-3 sm:text-sm dark:text-neutral-300"
             >
               {navItem.icon && <span className="text-sm">{navItem.icon}</span>}
-              <span className="hidden sm:block">{navItem.name}</span>
+              <span>{navItem.name}</span>
             </Link>
           ))}
         </motion.div>

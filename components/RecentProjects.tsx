@@ -11,7 +11,7 @@ const RecentProjects = () => {
   const [hoveredProjectId, setHoveredProjectId] = useState<number | null>(null);
 
   return (
-    <div className="w-full py-12 sm:py-16 lg:py-20">
+    <div className="w-full py-12 sm:py-16 lg:py-20" id="projects">
       <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-bold text-center">
         A small selection of{" "}
         <span className="text-purple-300">recent projects</span>
