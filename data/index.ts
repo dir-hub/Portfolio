@@ -180,34 +180,37 @@ export const companies = [
 ];
 
 export const workExperience = [
-  {
-    id: 1,
-    title: "Frontend Engineer Intern",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
-    className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
-  },
-  {
-    id: 2,
-    title: "Full Stack Developer",
-    desc: "Developed a Stock Market Tracking web application using Next.js with authentication, real-time stock data, watchlists, and responsive UI..",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp2.svg",
-  },
-  {
-    id: 3,
-    title: "Web Developer",
-    desc: "Built a modern portfolio website using Next.js, TypeScript, Tailwind CSS, and Framer Motion with smooth animations and responsive design.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp3.svg",
-  },
-  {
-    id: 4,
-    title: "AI Integration Project",
-    desc: "Integrated AI features into web applications using modern APIs to improve user experience and automate workflows.",
-    className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
-  },
+  
+{
+  id: 1,
+  title: "Frontend Engineer Intern",
+  desc: "Assisted in developing a web-based platform using React.js, improving user interaction and creating dynamic responsive interfaces.",
+  className: "md:col-span-2",
+  thumbnail: "/exp1.svg",
+},
+{
+  id: 2,
+  title: "Full Stack Developer",
+  desc: "Developed a stock market tracking web application using Next.js, implementing authentication, live stock data, and responsive UI.",
+  className: "md:col-span-2",
+  thumbnail: "/exp2.svg",
+},
+{
+  id: 3,
+  title: "Web Developer",
+  desc: "Built a modern portfolio website using Next.js, TypeScript, Tailwind CSS, and Framer Motion with animations and responsive design.",
+  className: "md:col-span-2",
+  thumbnail: "/exp3.svg",
+},
+{
+  id: 4,
+  title: "AI Integration Project",
+  desc: "Integrated AI features into web applications using modern APIs, improving user experience and automating repetitive workflows.",
+  className: "md:col-span-2",
+  thumbnail: "/exp4.svg",
+},
+
+
 ];
 
 export const socialMedia = [
