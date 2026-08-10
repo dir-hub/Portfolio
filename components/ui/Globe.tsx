@@ -19,23 +19,6 @@ const RING_PROPAGATION_SPEED = 3;
 const aspect = 1.2;
 const cameraZ = 300;
 
-let defaultScene: Scene | null = null;
-let defaultCamera: PerspectiveCamera | null = null;
-
-function getSharedScene() {
-  if (!defaultScene) {
-    defaultScene = new Scene();
-    defaultScene.fog = new Fog(0xffffff, 400, 2000);
-  }
-  return defaultScene;
-}
-function getSharedCamera() {
-  if (!defaultCamera) {
-    defaultCamera = new PerspectiveCamera(50, aspect, 180, 1800);
-  }
-  return defaultCamera;
-}
-
 type Position = {
   order: number;
   startLat: number;
@@ -270,10 +253,21 @@ const POINT_LIGHT_POS = new Vector3(-200, 500, 200);
 
 export function World(props: WorldProps) {
   const { globeConfig } = props;
-  const scene = getSharedScene();
-  const camera = getSharedCamera();
+  const scene = useRef<Scene | null>(null);
+  const camera = useRef<PerspectiveCamera | null>(null);
+
+  if (!scene.current) {
+    scene.current = new Scene();
+    scene.current.fog = new Fog(0xffffff, 400, 2000);
+  }
+
+  if (!camera.current) {
+    camera.current = new PerspectiveCamera(50, aspect, 180, 1800);
+    camera.current.position.z = cameraZ;
+  }
+
   return (
-    <Canvas scene={scene} camera={camera}>
+    <Canvas scene={scene.current} camera={camera.current}>
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
       <directionalLight

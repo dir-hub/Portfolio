@@ -16,8 +16,10 @@ const Approach = () => {
           icon={<AceternityIcon order="Phase 1" />}
           description="I start by understanding your goals, target audience, and project requirements. This helps me create a clear roadmap for the development process.">
           <CanvasRevealEffect
-            animationSpeed={5.1}
+            animationSpeed={3}
             containerClassName="bg-emerald-900"
+            colors={[[16, 185, 129]]}
+            dotSize={2}
           />
         </Card>
         <Card title="Design & Prototyping" icon={<AceternityIcon order="Phase 2"/>}
@@ -26,8 +28,8 @@ const Approach = () => {
             animationSpeed={3}
             containerClassName="bg-black"
             colors={[
-              [236, 72, 153],
-              [232, 121, 249],
+              [244, 114, 182],
+              [168, 85, 247],
             ]}
             dotSize={2}
           />
@@ -36,8 +38,9 @@ const Approach = () => {
           description="I build a fast, responsive website, integrate the required features, and refine every detail before a smooth, confident launch.">
           <CanvasRevealEffect
             animationSpeed={3}
-            containerClassName="bg-sky-600"
-            colors={[[125, 211, 252]]}
+            containerClassName="bg-sky-950"
+            colors={[[96, 165, 250], [14, 165, 233]]}
+            dotSize={2}
           />
         </Card>
       </div>

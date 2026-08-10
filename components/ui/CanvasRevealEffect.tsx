@@ -23,9 +23,20 @@ export const CanvasRevealEffect = ({
   dotSize?: number;
   showGradient?: boolean;
 }) => {
+  const baseColor = useMemo(() => {
+    const [r, g, b] = colors[0] ?? [0, 255, 255];
+    return `rgba(${r}, ${g}, ${b}, 0.28)`;
+  }, [colors]);
+
   return (
     <div className={cn("h-full relative bg-white w-full", containerClassName)}>
-      <div className="h-full w-full">
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundColor: baseColor,
+        }}
+      />
+      <div className="h-full w-full relative z-10">
         <DotMatrix
           colors={colors ?? [[0, 255, 255]]}
           dotSize={dotSize ?? 3}
@@ -42,7 +53,7 @@ export const CanvasRevealEffect = ({
         />
       </div>
       {showGradient && (
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-[84%]" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-t from-gray-950/70 via-gray-950/20 to-transparent" />
       )}
     </div>
   );
@@ -150,23 +161,34 @@ const DotMatrix: React.FC<DotMatrixProps> = ({
                 ? "st.y -= abs(floor((mod(u_resolution.y, u_total_size) - u_dot_size) * 0.5));"
                 : ""
             }
+
+      vec2 cell = floor(st / u_total_size);
+      vec2 local = fract(st / u_total_size);
+
+      vec2 jitter = vec2(
+        random(cell + vec2(1.7, 8.3)) - 0.5,
+        random(cell + vec2(6.2, 2.9)) - 0.5
+      ) * 0.5;
+
+      vec2 dotPos = local + jitter * 0.4;
+      float radius = clamp(u_dot_size / u_total_size * 0.7, 0.06, 0.18);
+      float dotMask = 1.0 - smoothstep(radius, radius + 0.04, length(dotPos - vec2(0.5)));
+
       float opacity = step(0.0, st.x);
       opacity *= step(0.0, st.y);
 
       vec2 st2 = vec2(int(st.x / u_total_size), int(st.y / u_total_size));
-
       float frequency = 5.0;
-      float show_offset = random(st2);
+      float show_offset = random(st2 + vec2(1.0, 2.0));
       float rand = random(st2 * floor((u_time / frequency) + show_offset + frequency) + 1.0);
-      opacity *= u_opacities[int(rand * 10.0)];
-      opacity *= 1.0 - step(u_dot_size / u_total_size, fract(st.x / u_total_size));
-      opacity *= 1.0 - step(u_dot_size / u_total_size, fract(st.y / u_total_size));
+      opacity *= u_opacities[int(rand * 10.0)] * 1.2;
+      opacity *= dotMask;
 
-      vec3 color = u_colors[int(show_offset * 6.0)];
+      vec3 color = u_colors[int(show_offset * 6.0)] * 1.15;
 
       ${shader}
 
-      fragColor = vec4(color, opacity);
+      fragColor = vec4(color, opacity * 0.95);
       fragColor.rgb *= fragColor.a;
         }`}
       uniforms={uniforms}

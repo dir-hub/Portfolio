@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative bg-black-100 flex min-h-screen flex-col items-center justify-center overflow-x-hidden">
+    <main className="relative flex min-h-screen flex-col items-center justify-start overflow-x-hidden overflow-y-hidden bg-black-100">
       <FloatingNav navItems={navItems} />
       <Hero />
       <Grid />
