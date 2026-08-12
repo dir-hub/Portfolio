@@ -7,6 +7,7 @@ import Clients from "@/components/Clients";
 import Experience from "@/components/Experience";
 import Approach from "@/components/Approach";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 
 export default function Home() {
@@ -14,12 +15,12 @@ export default function Home() {
     <main className="relative flex min-h-screen flex-col items-center justify-start overflow-x-hidden overflow-y-hidden bg-black-100">
       <FloatingNav navItems={navItems} />
       <Hero />
-      <Grid />
-      <RecentProjects />
-      <Clients />
-      <Experience />
-      <Approach />
-      <Footer />
+      <ScrollReveal><Grid /></ScrollReveal>
+      <ScrollReveal><RecentProjects /></ScrollReveal>
+      <ScrollReveal><Clients /></ScrollReveal>
+      <ScrollReveal><Experience /></ScrollReveal>
+      <ScrollReveal><Approach /></ScrollReveal>
+      <ScrollReveal><Footer /></ScrollReveal>
     </main>
   );
 }
