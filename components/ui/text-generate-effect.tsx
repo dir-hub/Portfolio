@@ -12,7 +12,7 @@ const Word = ({
   return (
     <motion.span
       key={word + idx}
-      initial={{ opacity: 0, filter: "blur(8px)", y: 12 }}
+      initial={{ opacity: 0, filter: "blur(0px)", y: 12 }}
       animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
       transition={{
         duration: 0.75,
