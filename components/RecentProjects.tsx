@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { FaLocationArrow } from "react-icons/fa6";
 
 import { projects } from "@/data";
@@ -8,8 +7,6 @@ import { PinContainer } from "./ui/3d-pin";
 import Link from "next/link";
 
 const RecentProjects = () => {
-  const [hoveredProjectId, setHoveredProjectId] = useState<number | null>(null);
-
   return (
     <div className="w-full py-12 sm:py-16 lg:py-20" id="projects">
       <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-bold text-center">
@@ -18,16 +15,14 @@ const RecentProjects = () => {
       </h1>
       <div className="mx-auto mt-8 grid w-full max-w-[1600px] grid-cols-1 items-start gap-x-6 gap-y-16 px-4 py-4 sm:mt-10 sm:px-6 md:grid-cols-2 md:gap-x-10 lg:gap-x-16 lg:gap-y-24 xl:gap-x-20 2xl:gap-x-24">
         {projects.map((item) => {
-          const isLivePreview = hoveredProjectId === item.id;
-
           return (
           <div
             className="flex min-h-[28rem] w-full items-center justify-center sm:min-h-[32rem] lg:min-h-[36rem] 2xl:min-h-[40rem]"
             key={item.id}
           >
             <PinContainer
-              title={isLivePreview ? item.liveLink : item.link}
-              href={isLivePreview ? item.liveLink : item.link}
+              title={item.link}
+              href={item.link}
               containerClassName={`w-full flex justify-center" ${
                 item.id % 2 === 0 ? "xl:justify-start" : "xl:justify-end"
               }`}
@@ -83,10 +78,8 @@ const RecentProjects = () => {
                     <Link
                       href={item.liveLink}
                       target="_blank"
-                      onMouseEnter={() => setHoveredProjectId(item.id)}
-                      onMouseLeave={() => setHoveredProjectId(null)}
-                      onFocus={() => setHoveredProjectId(item.id)}
-                      onBlur={() => setHoveredProjectId(null)}
+                      rel="noopener noreferrer"
+                      onClick={(event) => event.stopPropagation()}
                       className="flex lg:text-xl md:text-xs text-sm text-purple-300"
                     >
                       Check Live Site
