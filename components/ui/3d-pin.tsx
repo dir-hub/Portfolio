@@ -28,18 +28,6 @@ export const PinContainer = ({
     setTransform("translate(-50%,-50%) rotateX(0deg) scale(1)");
   };
 
-  const handleOpenLink = () => {
-    if (!href) return;
-    window.open(href, "_blank", "noopener,noreferrer");
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      handleOpenLink();
-    }
-  };
-
   return (
     <div
       className={cn(
@@ -48,10 +36,6 @@ export const PinContainer = ({
       )}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      onClick={handleOpenLink}
-      onKeyDown={handleKeyDown}
-      role="link"
-      tabIndex={0}
     >
       <div
         style={{
@@ -66,7 +50,18 @@ export const PinContainer = ({
           }}
           className="absolute left-1/2 top-1/2 w-full p-4 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] border border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
         >
-          <div className={cn(" relative z-50 ", className)}>{children}</div>
+          {href && (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${title ?? "project source"} on GitHub`}
+              className="absolute inset-0 z-0"
+            />
+          )}
+          <div className={cn("relative z-10 pointer-events-none", className)}>
+            {children}
+          </div>
         </div>
       </div>
       <PinPerspective title={title} href={href} />

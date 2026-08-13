@@ -80,7 +80,7 @@ const RecentProjects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(event) => event.stopPropagation()}
-                      className="flex lg:text-xl md:text-xs text-sm text-purple-300"
+                      className="relative z-20 pointer-events-auto flex lg:text-xl md:text-xs text-sm text-purple-300"
                     >
                       Check Live Site
                     </Link>
