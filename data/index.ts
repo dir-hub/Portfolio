@@ -104,7 +104,7 @@ export const projects = [
     img: "/p4.jpg",
     iconLists: ["/re.svg", "/nodejs.svg", "/c.svg", "/mongodb.svg", "/git.svg"],
     link: "https://github.com/dir-hub/Job-Portal",
-    liveLink: "https://job-portal-server-xi-nine.vercel.app",
+    liveLink: "https://job-portal-omega-silk.vercel.app",
   },
 ];
 
